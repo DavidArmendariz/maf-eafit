@@ -5,7 +5,7 @@
 groups = ["default"]
 strategy = ["inherit_metadata"]
 lock_version = "4.5.0"
-content_hash = "sha256:fa833d4565d69f73c2f68c0755e444742fd203340e26636f5b0936df70507eab"
+content_hash = "sha256:876224fdccd26d1017b5cee7b73d0ac1046b6698dbcdbc49faf68d83d30f89b7"
 
 [[metadata.targets]]
 requires_python = "==3.12.*"
@@ -1165,6 +1165,20 @@ files = [
     {file = "numpy-2.4.3-cp312-cp312-win_amd64.whl", hash = "sha256:65f3c2455188f09678355f5cae1f959a06b778bc66d535da07bf2ef20cd319d5"},
     {file = "numpy-2.4.3-cp312-cp312-win_arm64.whl", hash = "sha256:2abad5c7fef172b3377502bde47892439bae394a71bc329f31df0fd829b41a9e"},
     {file = "numpy-2.4.3.tar.gz", hash = "sha256:483a201202b73495f00dbc83796c6ae63137a9bdade074f7648b3e32613412dd"},
+]
+
+[[package]]
+name = "numpy-financial"
+version = "1.0.0"
+requires_python = ">=3.5"
+summary = "Simple financial functions"
+groups = ["default"]
+dependencies = [
+    "numpy>=1.15",
+]
+files = [
+    {file = "numpy-financial-1.0.0.tar.gz", hash = "sha256:f84341bc62b2485d5604a73d5fac7e91975b4b9cd5f4a5a9cf608902ea00cb40"},
+    {file = "numpy_financial-1.0.0-py3-none-any.whl", hash = "sha256:bae534b357516f12258862d1f0181d911032d0467f215bfcd1c264b4da579047"},
 ]
 
 [[package]]
