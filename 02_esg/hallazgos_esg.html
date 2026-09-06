@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<title>Hallazgos ESG y gobierno corporativo</title>
+<style>
+  @page { size: A4; margin: 16mm 15mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 9.4pt;
+         line-height: 1.42; color: #1a1a1a; margin: 0; }
+  h1 { font-size: 15.5pt; margin: 0 0 2px; }
+  .sub { color: #555; font-size: 8.6pt; margin-bottom: 12px;
+         border-bottom: 2px solid #1f3864; padding-bottom: 7px; }
+  h2 { font-size: 10.6pt; color: #1f3864; margin: 13px 0 5px;
+       border-left: 3px solid #1f3864; padding-left: 6px;
+       break-after: avoid; page-break-after: avoid; }
+  p { margin: 4px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 6px 0 8px; font-size: 8.5pt;
+          break-inside: avoid; page-break-inside: avoid; }
+  tr { break-inside: avoid; }
+  th { background: #1f3864; color: #fff; text-align: left; padding: 3.5px 6px; font-weight: 600; }
+  td { padding: 3.2px 6px; border-bottom: 1px solid #dcdcdc; }
+  td.n, th.n { text-align: right; }
+  .si { color: #1e6f3e; font-weight: 600; }
+  .no { color: #a32020; font-weight: 600; }
+  ul { margin: 4px 0 4px 16px; padding: 0; }
+  li { margin: 2.5px 0; }
+  .box { background: #f2f5fa; border-left: 3px solid #1f3864; padding: 7px 10px; margin: 8px 0; }
+  .lim { background: #fdf3f3; border-left: 3px solid #a32020; padding: 7px 10px; margin: 8px 0; }
+  .foot { margin-top: 12px; padding-top: 6px; border-top: 1px solid #ccc;
+          font-size: 7.8pt; color: #666; }
+  strong { color: #000; }
+</style></head><body>
+
+<h1>Gobierno corporativo, ESG y desempeño</h1>
+<div class="sub">1.878 empresas, año fiscal 2023, datos Bloomberg BESG. Corte transversal:
+mide asociación, no causalidad. Cobertura del puntaje ESG: 1.433 empresas (76%).</div>
+
+<h2>1. El costo de capital es el único resultado sólido</h2>
+<p>De todas las métricas de desempeño, el WACC es la que responde de forma consistente a la
+calidad del gobierno, y la única que sobrevive a controles de tamaño, apalancamiento y sector.</p>
+<table>
+<tr><th>Desempeño</th><th class="n">Brecha bruta Q5-Q1</th><th class="n">Efecto por punto de puntaje de gobierno</th><th>¿Sobrevive controles?</th></tr>
+<tr><td>WACC</td><td class="n">-2,25 p.p.</td><td class="n">-0,55 p.p. (p&lt;0,0001)</td><td class="si">Sí</td></tr>
+<tr><td>ROE</td><td class="n">+14,6 p.p.</td><td class="n">+2,64 p.p. (p&lt;0,0001)</td><td class="si">Sí</td></tr>
+<tr><td>ROA</td><td class="n">+4,80 p.p.</td><td class="n">+0,88 p.p. (p=0,0001)</td><td class="si">Sí</td></tr>
+<tr><td>Margen operativo</td><td class="n">+22,1 p.p.</td><td class="n">+3,81 p.p. (p&lt;0,001)</td><td class="si">Sí</td></tr>
+<tr><td>ROIC/WACC</td><td class="n">+1,09</td><td class="n">+0,21 (p&lt;0,0001)</td><td class="si">Sí</td></tr>
+</table>
+<p>El WACC baja de forma monótona en los cinco quintiles de gobierno, de 9,78% a 7,53%. Es donde
+la teoría de agencia predice que debe aparecer el efecto: el gobierno se paga en el precio del
+capital, al reducir el riesgo percibido de expropiación al inversionista.</p>
+
+<h2>2. El puntaje ESG total es mucho más débil que el pilar de gobierno</h2>
+<p>Clasificando por ESG total en vez de gobierno, la ventaja de rentabilidad desaparece al
+controlar por tamaño y sector. El grupo de alto ESG tiene un market cap mediano <strong>3,8 veces
+mayor</strong>: los boxplots crudos comparan grandes contra pequeñas, no buen contra mal ESG.</p>
+<table>
+<tr><th>Métrica</th><th class="n">Δ mediana bruta (alto vs bajo ESG)</th><th>Con controles de tamaño y sector</th></tr>
+<tr><td>WACC</td><td class="n">-0,84 p.p.</td><td class="si">Sí, -0,76 p.p. (p&lt;0,0001)</td></tr>
+<tr><td>Price/Book</td><td class="n">sin diferencia</td><td class="no">Sí, pero en contra: -5,08 (p&lt;0,0001)</td></tr>
+<tr><td>ROA</td><td class="n">+1,89 p.p.</td><td class="no">No (p=0,22)</td></tr>
+<tr><td>ROE</td><td class="n">+1,86 p.p.</td><td class="no">No (p=0,94)</td></tr>
+<tr><td>ROIC/WACC</td><td class="n">+0,15</td><td class="no">No (p=0,27)</td></tr>
+<tr><td>Margen operativo</td><td class="n">+1,09 p.p.</td><td>Marginal (p=0,053)</td></tr>
+</table>
+<div class="box"><strong>Implicación práctica:</strong> mezclar los pilares ambiental y social
+diluye la señal. Un punto de pilar de gobierno se asocia con +0,88 p.p. de ROA; un punto de ESG
+total, con +0,47 p.p. y sin efecto alguno en ROE. Contra pares de su mismo tamaño e industria,
+las empresas de alto ESG cotizan a múltiplo <em>menor</em>, no mayor: no hay prima de valoración.</div>
+
+<h2>3. Quitar blindaje pesa más que sumar buenas prácticas</h2>
+<p>Las características formales de la junta, tomadas de una en una, no predicen rentabilidad.
+Los mecanismos de blindaje sí muestran signo claro y consistente.</p>
+<ul>
+<li><strong>Junta escalonada:</strong> ROE bruto 12,3 p.p. menor; WACC 0,61 p.p. mayor con controles. Es la
+variable que el propio puntaje de Bloomberg castiga más fuerte (-0,56 puntos).</li>
+<li><strong>Dualidad del CEO</strong> (el CEO preside la junta): ROA 2,19 p.p. menor y
+ROIC/WACC 0,40 menor.</li>
+<li><strong>Independencia, tamaño y diversidad de la junta:</strong> sin efecto significativo
+sobre ROA ni ROE por separado. Solo reducen el WACC.</li>
+</ul>
+
+<h2>4. Índice propio de calidad de junta (ICJ)</h2>
+<p>Índice de cinco componentes en percentiles (independencia, moderación del tamaño, % mujeres,
+sin dualidad, sin junta escalonada), ponderación igual, escala 0-10.</p>
+<table>
+<tr><th>Resultado</th><th class="n">Valor</th><th>Lectura</th></tr>
+<tr><td>Correlación con puntaje BESG de gobierno</td><td class="n">r = 0,63 · Spearman 0,67</td><td>R² = 0,39; se mantiene en 0,61 neta de tamaño</td></tr>
+<tr><td>Coincidencia de clasificación</td><td class="n">39% mismo quintil</td><td>82% a un quintil; el azar daría 20%</td></tr>
+<tr><td>Efecto sobre ROA</td><td class="n">+0,86 p.p. (p=0,020)</td><td>Con controles de tamaño, deuda y sector</td></tr>
+<tr><td>Efecto sobre WACC</td><td class="n">-0,35 p.p. (p&lt;0,001)</td><td>Mismo signo que el puntaje comercial</td></tr>
+</table>
+<p>Tres hallazgos que importan más que la correlación misma:</p>
+<ul>
+<li><strong>El índice predice rentabilidad donde las variables sueltas no lo hacían.</strong>
+Cada variable mide con error una parte de la calidad de gobierno; promediarlas cancela parte de
+ese error. La conclusión correcta no es "la estructura de junta no importa", sino "ninguna
+variable aislada tiene poder suficiente, el conjunto sí".</li>
+<li><strong>Hay reparto de tareas.</strong> En la regresión conjunta, el ICJ retiene el efecto
+sobre ROA (p=0,041) y el puntaje BESG lo pierde (p=0,79); en WACC ocurre lo inverso (BESG
+p&lt;0,001, ICJ p=0,16). La estructura de la junta se asocia con la rentabilidad; el puntaje
+comercial completo, con el costo de capital. No son sustitutos.</li>
+<li><strong>Bloomberg premia juntas grandes</strong> (+0,12 puntos por director, p&lt;0,001),
+contrario a la literatura de gobierno. Es la principal diferencia metodológica entre ambos
+indicadores y es discutible en la dirección de Bloomberg.</li>
+</ul>
+
+<h2>5. Contexto descriptivo</h2>
+<ul>
+<li>ESG medio 3,97 en escala 0-10 (mediana 3,96; rango 0,78 a 8,47). Ninguna empresa se acerca al
+máximo teórico, así que el puntaje discrimina bien entre pares.</li>
+<li>Por pilar: gobernanza 6,92, social 3,29, ambiental 2,88. Las prácticas de gobierno están más
+estandarizadas y mejor divulgadas.</li>
+<li>El sector explica 8,2% de la varianza del ESG (ANOVA y Kruskal-Wallis, p≈0). Mayor promedio:
+Basic Materials 5,04. Menor: Financial 3,46.</li>
+<li>El ESG correlaciona positivamente con el tamaño. Las 445 empresas sin puntaje son más
+pequeñas que la media, o sea el dato faltante no es aleatorio.</li>
+</ul>
+
+<div class="lim"><strong>Tres límites que estos datos no resuelven.</strong>
+<strong>(1) Causalidad:</strong> con un solo año, "las empresas rentables costean mejor gobierno"
+es igual de compatible con la evidencia. Haría falta panel multianual con rezagos y retornos
+accionarios. <strong>(2) Cobertura:</strong> la estructura de junta existe para 437 de 1.878
+empresas, sesgadas a gran capitalización; el ICJ se calcula para 415. Esos resultados describen
+grandes capitalizaciones. <strong>(3) El WACC no es un resultado independiente:</strong> Bloomberg
+lo calcula desde el beta y el spread de crédito, y las empresas grandes y estables tienen beta
+bajo por construcción. Es la relación más fuerte del ejercicio y también la más expuesta a
+esta crítica.</div>
+
+<div class="foot">Fuente: 07. T1_GC_datos.xlsx (Bloomberg BESG, FY2023). Detalle, gráficos y
+código en los notebooks analisis_esg.ipynb y gobierno_vs_desempeno.ipynb. Variables financieras
+winsorizadas al 1%-99%; errores estándar robustos (HC1); efectos fijos de sector en toda
+especificación con controles.</div>
+
+</body></html>

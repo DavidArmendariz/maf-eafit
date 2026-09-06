@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<title>Informe Taller 1: Gobierno Corporativo</title>
+<style>
+  @page { size: A4; margin: 15mm 14mm; }
+  * { box-sizing: border-box; }
+  body { font-family: "Helvetica Neue", Arial, sans-serif; font-size: 9.2pt;
+         line-height: 1.34; color: #1a1a1a; margin: 0; }
+  h1 { font-size: 15pt; margin: 0 0 2px; }
+  .sub { color: #555; font-size: 8.4pt; margin-bottom: 10px;
+         border-bottom: 2px solid #1f3864; padding-bottom: 6px; }
+  h2 { font-size: 10.6pt; color: #1f3864; margin: 13px 0 5px;
+       border-left: 3px solid #1f3864; padding-left: 6px;
+       break-after: avoid; page-break-after: avoid; }
+  h3 { font-size: 9.2pt; color: #1f3864; margin: 9px 0 3px;
+       break-after: avoid; page-break-after: avoid; }
+  p { margin: 4px 0; }
+  table { border-collapse: collapse; width: 100%; margin: 5px 0 7px; font-size: 8.1pt;
+          break-inside: avoid; page-break-inside: avoid; }
+  tr { break-inside: avoid; }
+  th { background: #1f3864; color: #fff; text-align: left; padding: 3.2px 6px; font-weight: 600; }
+  td { padding: 2.5px 6px; border-bottom: 1px solid #dcdcdc; }
+  td.n, th.n { text-align: right; }
+  .si { color: #1e6f3e; font-weight: 600; }
+  .no { color: #a32020; font-weight: 600; }
+  .gris { color: #8a8a8a; }
+  ul { margin: 4px 0 4px 16px; padding: 0; }
+  li { margin: 2px 0; }
+  .box { background: #f2f5fa; border-left: 3px solid #1f3864; padding: 7px 10px; margin: 7px 0;
+         break-inside: avoid; }
+  .lim { background: #fdf3f3; border-left: 3px solid #a32020; padding: 7px 10px; margin: 8px 0;
+         break-inside: avoid; }
+  .foot { margin-top: 11px; padding-top: 6px; border-top: 1px solid #ccc;
+          font-size: 7.6pt; color: #666; }
+  strong { color: #000; }
+</style></head><body>
+
+<h1>Taller 1: Gobierno Corporativo y desempeño de la firma</h1>
+<div class="sub">Inversión ASG 2025-1 · Maestría en Administración Financiera · Universidad EAFIT ·
+1.878 empresas del mercado norteamericano, año fiscal 2023, Bloomberg BESG
+(<code>T1_GC_datos.xlsx</code>). <strong>Cómo leer las tablas:</strong>
+<span class="si">verde</span> = el efecto se sostiene al controlar por tamaño, apalancamiento y
+sector; <span class="no">rojo</span> = se sostiene pero en contra de lo esperado;
+<span class="gris">gris</span> = no se distingue de cero.</div>
+
+<div class="box"><strong>Respuesta a la pregunta del taller.</strong> La intuición de partida
+—invertir en empresas con mejor gobierno porque en promedio se desempeñan mejor— <strong>se
+confirma, pero no por la vía que uno esperaría y no de forma lineal</strong>. El gobierno se paga
+sobre todo en el <strong>costo de capital</strong>, no en el múltiplo de valoración. Y la relación
+con la rentabilidad no es una línea recta: es un <strong>umbral</strong>. Casi todo el beneficio se
+obtiene al salir del tercio peor gobernado; de ahí en adelante el gobierno adicional casi no paga.
+Para un inversionista eso cambia la estrategia: no conviene pagar por el gobierno excelente, sino
+evitar el gobierno malo.</div>
+
+<h2>1. Análisis descriptivo de las variables</h2>
+
+<h3>1.1 Puntajes ASG</h3>
+<table>
+<tr><th>Puntaje</th><th class="n">n</th><th class="n">Media</th><th class="n">Varianza</th><th class="n">Desv. est.</th><th class="n">Mín</th><th class="n">Máx</th><th class="n">Rango</th><th class="n">Coef. variación</th></tr>
+<tr><td>ESG total</td><td class="n">1.433</td><td class="n">3,97</td><td class="n">2,30</td><td class="n">1,52</td><td class="n">0,78</td><td class="n">8,47</td><td class="n">7,69</td><td class="n">0,38</td></tr>
+<tr><td><strong>Gobernanza (G)</strong></td><td class="n">1.433</td><td class="n">6,92</td><td class="n">1,35</td><td class="n">1,16</td><td class="n">2,02</td><td class="n">9,10</td><td class="n">7,08</td><td class="n">0,17</td></tr>
+<tr><td>Social (S)</td><td class="n">1.433</td><td class="n">3,29</td><td class="n">4,48</td><td class="n">2,12</td><td class="n">0,00</td><td class="n">10,00</td><td class="n">10,00</td><td class="n">0,64</td></tr>
+<tr><td>Ambiental (E)</td><td class="n">1.433</td><td class="n">2,88</td><td class="n">5,48</td><td class="n">2,34</td><td class="n">0,00</td><td class="n">9,43</td><td class="n">9,43</td><td class="n">0,81</td></tr>
+</table>
+<p><strong>El gobierno es la dimensión más consolidada y la más homogénea.</strong> Su media (6,92)
+duplica la ambiental (2,88) y su varianza (1,35) es la cuarta parte. El coeficiente de variación lo
+resume: 0,17 en gobierno contra 0,81 en ambiental. La lectura sustantiva es que las prácticas de
+gobierno están estandarizadas por regulación y por presión del mercado de capitales, mientras que
+lo ambiental sigue siendo terreno de diferenciación voluntaria. Como consecuencia estadística,
+<strong>el pilar de gobierno discrimina poco entre empresas</strong>: hay que buscar la señal en la
+cola baja, no en la alta.</p>
+
+<h3>1.2 Características de la junta directiva</h3>
+<table>
+<tr><th>Característica</th><th class="n">n</th><th class="n">Media</th><th class="n">Varianza</th><th class="n">Mín</th><th class="n">Mediana</th><th class="n">Máx</th><th class="n">Rango</th></tr>
+<tr><td>% directores independientes</td><td class="n">381</td><td class="n">78,07</td><td class="n">241,8</td><td class="n">27,27</td><td class="n">83,33</td><td class="n">93,75</td><td class="n">66,48</td></tr>
+<tr><td>Tamaño de la junta (directores)</td><td class="n">438</td><td class="n">9,66</td><td class="n">4,65</td><td class="n">3,00</td><td class="n">10,00</td><td class="n">17,00</td><td class="n">14,00</td></tr>
+<tr><td>Edad media de la junta (años)</td><td class="n">432</td><td class="n">61,00</td><td class="n">28,35</td><td class="n">42,25</td><td class="n">61,78</td><td class="n">80,40</td><td class="n">38,15</td></tr>
+<tr><td>% mujeres en la junta</td><td class="n">437</td><td class="n">28,91</td><td class="n">127,4</td><td class="n">0,00</td><td class="n">30,00</td><td class="n">66,67</td><td class="n">66,67</td></tr>
+</table>
+<p>La junta típica tiene diez miembros, cuatro de cada cinco independientes, edad media de 61 años
+y tres de cada diez asientos ocupados por mujeres. Dos observaciones importan. Primero, la
+independencia está muy concentrada arriba (mediana 83%, máximo 94%): <strong>casi ninguna empresa
+del índice tiene una junta capturada por dentro</strong>, así que esta variable tampoco separa bien.
+Segundo, la diversidad de género es la que más varía (varianza 127,4, de 0% a 67%), y por eso es
+la característica con más capacidad de discriminar entre empresas.</p>
+<p class="gris">Advertencia de cobertura: estas variables existen para unas 430 de las 1.878
+empresas (23%), y las que reportan son sistemáticamente más grandes. Todo lo que sigue sobre
+estructura de junta describe al segmento de gran capitalización, no al mercado completo.</p>
+
+<h3>1.3 Compensación ejecutiva</h3>
+<table>
+<tr><th>Concepto</th><th class="n">n</th><th class="n">Media (USD)</th><th class="n">Mediana (USD)</th><th class="n">Desv. est.</th><th class="n">Máximo</th><th class="n">Coef. variación</th></tr>
+<tr><td>Total a ejecutivos</td><td class="n">1.396</td><td class="n">33,6 M</td><td class="n">25,4 M</td><td class="n">51,9 M</td><td class="n">1.607 M</td><td class="n">1,54</td></tr>
+<tr><td>Al CEO</td><td class="n">1.363</td><td class="n">14,2 M</td><td class="n">10,8 M</td><td class="n">15,9 M</td><td class="n">246 M</td><td class="n">1,12</td></tr>
+<tr><td>A la junta directiva</td><td class="n">1.399</td><td class="n">2,75 M</td><td class="n">2,55 M</td><td class="n">1,89 M</td><td class="n">35,2 M</td><td class="n">0,69</td></tr>
+</table>
+<p>La compensación es la variable más asimétrica del archivo: coeficiente de asimetría de 20,9 y
+un máximo (USD 1.607 M) que multiplica por 63 la mediana. <strong>Usar la media aquí es un
+error</strong>; todo el análisis posterior emplea medianas y transformación logarítmica. El
+contraste entre los tres conceptos es informativo: la compensación de la junta es cuatro veces más
+homogénea que la de los ejecutivos (CV 0,69 contra 1,54), lo que sugiere que se fija por convención
+de mercado y no por desempeño individual.</p>
+
+<h3>1.4 Mecanismos antitoma de control</h3>
+<table>
+<tr><th>Mecanismo</th><th class="n">n informado</th><th class="n">Con mecanismo</th><th class="n">Prevalencia</th><th class="n">Puntaje G con</th><th class="n">Puntaje G sin</th><th class="n">Diferencia</th></tr>
+<tr><td><strong>Paracaídas dorado</strong></td><td class="n">432</td><td class="n">343</td><td class="n">79,4%</td><td class="n">6,87</td><td class="n">5,15</td><td class="n no">+1,72</td></tr>
+<tr><td>Dualidad del CEO</td><td class="n">442</td><td class="n">154</td><td class="n">34,8%</td><td class="n">6,30</td><td class="n">6,67</td><td class="n si">−0,38</td></tr>
+<tr><td>Junta escalonada</td><td class="n">428</td><td class="n">142</td><td class="n">33,2%</td><td class="n">5,92</td><td class="n">6,89</td><td class="n si">−0,97</td></tr>
+<tr><td>Poison pill</td><td class="n">1.117</td><td class="n">11</td><td class="n">1,0%</td><td class="n gris">6,45</td><td class="n gris">6,91</td><td class="n gris">−0,46</td></tr>
+</table>
+<p><strong>La <em>poison pill</em> está prácticamente extinta</strong>: once empresas de 1.117
+informadas. Es un dato de época. El blindaje clásico de los años ochenta desapareció por presión de
+los inversionistas institucionales, y quien quiera estudiarlo hoy necesita datos históricos.</p>
+<p><strong>El paracaídas dorado se comporta al revés de lo esperado y es el hallazgo más incómodo
+del ejercicio.</strong> Es el mecanismo más extendido con diferencia (79%) y, lejos de penalizarse,
+va acompañado de un puntaje de gobierno <em>1,72 puntos más alto</em>, la mayor brecha de toda la
+tabla. La literatura de gobierno lo clasifica como atrincheramiento; Bloomberg, en la práctica, lo
+premia. Caben dos lecturas y los datos no permiten elegir: o bien el paracaídas se ha vuelto una
+cláusula estándar de contratación profesional que acompaña a empresas bien gestionadas, o bien el
+puntaje comercial está midiendo formalización contractual y no protección al accionista. En
+cualquier caso, <strong>quien use el puntaje BESG de gobierno como filtro de inversión debe saber
+que no está filtrando paracaídas dorados</strong>.</p>
+<p>Los mecanismos <strong>no se acumulan</strong>: entre las 388 empresas con los cuatro datos, la
+correlación máxima entre dos mecanismos es 0,05, ninguna empresa tiene los cuatro y solo 43 tienen
+tres. No existe un perfil de "empresa blindada"; cada mecanismo responde a su propia historia.</p>
+
+<h2>2. Análisis de correlación</h2>
+<p>Se estiman las dos medidas que pide el ejercicio. La <strong>covarianza</strong> conserva las
+unidades de cada par y por eso su magnitud no es comparable entre pares; la
+<strong>correlación</strong> es esa misma covarianza dividida por las desviaciones estándar, y sí
+lo es. El siguiente par lo ilustra: la covarianza de la independencia con el ROA es casi siete
+veces la del tamaño de junta con el ROA, pero una vez estandarizadas las dos relaciones son
+prácticamente iguales.</p>
+<table>
+<tr><th>Par de variables</th><th class="n">Covarianza</th><th class="n">Unidades</th><th class="n">Correlación</th></tr>
+<tr><td>Tamaño de junta y ROA</td><td class="n">2,87</td><td class="n">directores × %</td><td class="n">0,115</td></tr>
+<tr><td>% independientes y ROA</td><td class="n">19,44</td><td class="n">% × %</td><td class="n">0,110</td></tr>
+</table>
+<p>La matriz de correlaciones de Spearman (monótona y robusta a los valores extremos, que aquí
+abundan) muestra un patrón muy consistente:</p>
+<table>
+<tr><th>Característica de gobierno</th><th class="n">ROA</th><th class="n">ROE</th><th class="n">ROIC/WACC</th><th class="n">Margen op.</th><th class="n">WACC</th><th class="n">Price/Book</th></tr>
+<tr><td>Puntaje de gobierno (G)</td><td class="n">+0,12</td><td class="n">+0,15</td><td class="n">+0,21</td><td class="n">+0,17</td><td class="n si">−0,32</td><td class="n no">−0,14</td></tr>
+<tr><td>% independientes</td><td class="n">+0,10</td><td class="n">+0,13</td><td class="n">+0,24</td><td class="n">+0,06</td><td class="n si">−0,28</td><td class="n gris">−0,01</td></tr>
+<tr><td>Tamaño de la junta</td><td class="n">+0,10</td><td class="n">+0,24</td><td class="n">+0,21</td><td class="n">+0,12</td><td class="n si">−0,31</td><td class="n gris">−0,03</td></tr>
+<tr><td>Edad media de la junta</td><td class="n">+0,14</td><td class="n">+0,19</td><td class="n">+0,17</td><td class="n">+0,14</td><td class="n si">−0,26</td><td class="n">−0,11</td></tr>
+<tr><td>% mujeres en la junta</td><td class="n">+0,10</td><td class="n">+0,15</td><td class="n">+0,17</td><td class="n gris">+0,01</td><td class="n si">−0,28</td><td class="n gris">+0,05</td></tr>
+<tr><td>Junta escalonada</td><td class="n">−0,11</td><td class="n">−0,15</td><td class="n">−0,16</td><td class="n">−0,14</td><td class="n no">+0,24</td><td class="n gris">+0,08</td></tr>
+<tr><td>Dualidad del CEO</td><td class="n">−0,07</td><td class="n">−0,07</td><td class="n">−0,07</td><td class="n">−0,10</td><td class="n">+0,07</td><td class="n gris">+0,10</td></tr>
+</table>
+<p><strong>La columna del WACC es, con diferencia, la más fuerte y la única con signo uniforme.</strong>
+Todas las características de buen gobierno reducen el costo de capital, y todos los mecanismos de
+blindaje lo aumentan. Las columnas de rentabilidad son positivas pero débiles (0,10 a 0,24), y la
+de Price/Book es negativa: <strong>mejor gobierno viene con múltiplo más bajo, no más alto</strong>.
+Leído junto, el mercado no paga una prima de valoración por el buen gobierno; lo reconoce
+exigiendo menos retorno al capital, que es precisamente lo que predice la teoría de agencia.</p>
+
+<h2>3. Regresión: la relación es no lineal, y es un umbral</h2>
+<p>Para explorar la no linealidad se comparan tres especificaciones de la misma relación, todas
+con controles de tamaño (logaritmo del market cap), apalancamiento y efectos fijos de sector, y
+errores estándar robustos a heterocedasticidad:</p>
+<ul>
+<li><strong>Lineal:</strong> <code>y = a + b·G</code></li>
+<li><strong>Cuadrática:</strong> <code>y = a + b₁·G + b₂·G²</code>, que permite curvatura</li>
+<li><strong>Escalonada:</strong> variables dicotómicas por quintil de G, que no impone forma alguna</li>
+</ul>
+<table>
+<tr><th>Desempeño</th><th class="n">b lineal</th><th class="n">b del término G²</th><th class="n">¿Aporta G²?</th><th class="n">R² lineal</th><th class="n">R² cuadrático</th><th class="n">R² escalonado</th></tr>
+<tr><td>Margen operativo</td><td class="n">+3,81</td><td class="n">+1,520</td><td class="si">Sí</td><td class="n">0,106</td><td class="n">0,111</td><td class="n si">0,117</td></tr>
+<tr><td>ROA</td><td class="n">+0,88</td><td class="n">+0,313</td><td class="si">Sí</td><td class="n">0,121</td><td class="n">0,125</td><td class="n si">0,136</td></tr>
+<tr><td>ROIC / WACC</td><td class="n">+0,21</td><td class="n">+0,058</td><td class="si">Sí</td><td class="n">0,112</td><td class="n">0,118</td><td class="n si">0,126</td></tr>
+<tr><td>ROE</td><td class="n">+2,64</td><td class="n gris">+0,459</td><td class="gris">No</td><td class="n">0,132</td><td class="n">0,134</td><td class="n si">0,143</td></tr>
+<tr><td><strong>WACC</strong></td><td class="n">−0,55</td><td class="n gris">+0,013</td><td class="gris">No</td><td class="n si">0,322</td><td class="n">0,322</td><td class="n">0,311</td></tr>
+</table>
+<p><strong>La no linealidad existe y es estadísticamente clara en las medidas de rentabilidad</strong>
+(margen operativo, ROA y ROIC/WACC). Pero la forma no es la parábola que sugiere el término
+cuadrático: en las cinco métricas de rentabilidad <strong>el modelo escalonado tiene mayor R² que
+el cuadrático</strong>, es decir, describe mejor los datos sin imponer ninguna forma funcional. La
+cuadrática detecta que hay curvatura y la fuerza a una parábola que no corresponde.</p>
+<p><strong>El WACC es la excepción y va en dirección contraria.</strong> Allí el término cuadrático
+no aporta nada, el escalonado empeora el ajuste y el modelo lineal es el mejor de los tres, con un
+R² de 0,322 que triplica al de cualquier medida de rentabilidad. Conclusión: <strong>el costo de
+capital responde al gobierno de forma continua y proporcional; la rentabilidad responde por
+umbral</strong>. Son dos mecanismos distintos, no dos manifestaciones del mismo.</p>
+<p>El perfil por quintiles muestra dónde está el umbral. Cada celda es la diferencia frente al
+quintil peor gobernado, con controles:</p>
+<table>
+<tr><th>Desempeño</th><th class="n">Q1 (peor)</th><th class="n">Q2</th><th class="n">Q3</th><th class="n">Q4</th><th class="n">Q5 (mejor)</th></tr>
+<tr><td>Margen operativo (p.p.)</td><td class="n">0,00</td><td class="n">+8,47</td><td class="n">+16,74</td><td class="n">+15,58</td><td class="n">+17,21</td></tr>
+<tr><td>ROE (p.p.)</td><td class="n">0,00</td><td class="n">+3,79</td><td class="n">+11,88</td><td class="n">+8,70</td><td class="n">+9,34</td></tr>
+<tr><td>ROA (p.p.)</td><td class="n">0,00</td><td class="n">+1,42</td><td class="n">+4,44</td><td class="n">+3,84</td><td class="n">+3,63</td></tr>
+<tr><td>ROIC / WACC</td><td class="n">0,00</td><td class="n">+0,49</td><td class="n">+0,76</td><td class="n">+0,76</td><td class="n">+0,88</td></tr>
+<tr><td>WACC (p.p.)</td><td class="n">0,00</td><td class="n">−1,02</td><td class="n">−1,24</td><td class="n">−1,45</td><td class="n">−1,76</td></tr>
+</table>
+<p><strong>En rentabilidad, todo el efecto se agota en Q3.</strong> El ROA sube 4,44 p.p. al pasar
+de Q1 a Q3 y luego <em>baja</em> ligeramente hasta 3,63 en Q5; el ROE hace lo mismo (11,88 en Q3
+contra 9,34 en Q5). Pasar de gobierno malo a gobierno mediano paga; pasar de mediano a excelente
+no. <strong>El WACC es el único que sigue mejorando de forma monótona hasta Q5</strong> (−1,02,
+−1,24, −1,45, −1,76), y ahí se ve con claridad la diferencia entre los dos mecanismos.</p>
+<p>Esto tiene una consecuencia práctica directa para la decisión de inversión que plantea el
+enunciado: <strong>el rendimiento de invertir en gobierno es decreciente en rentabilidad y
+constante en costo de capital</strong>. Una estrategia de exclusión (evitar el quintil peor) captura
+casi todo el beneficio operativo; una estrategia de selección de los mejores solo añade valor por
+la vía del costo de capital.</p>
+
+<h2>4. Problemas de endogeneidad</h2>
+<p>Los resultados anteriores son asociaciones. Cuatro problemas impiden leerlos como efectos
+causales, y los datos permiten dimensionar los cuatro.</p>
+
+<h3>4.1 Variable omitida: el tamaño</h3>
+<table>
+<tr><th>Desempeño</th><th class="n">(1) Sin controles</th><th class="n">(2) + tamaño</th><th class="n">(3) + apalancamiento</th><th class="n">(4) + sector</th><th class="n">Caída (1)→(4)</th></tr>
+<tr><td>ROE</td><td class="n">3,969</td><td class="n">3,095</td><td class="n">2,648</td><td class="n">2,640</td><td class="n no">−33,5%</td></tr>
+<tr><td>Margen operativo</td><td class="n">5,201</td><td class="n">4,497</td><td class="n">4,517</td><td class="n">3,808</td><td class="n no">−26,8%</td></tr>
+<tr><td>ROA</td><td class="n">1,198</td><td class="n">0,862</td><td class="n">0,869</td><td class="n">0,882</td><td class="n no">−26,4%</td></tr>
+<tr><td>ROIC / WACC</td><td class="n">0,267</td><td class="n">0,218</td><td class="n">0,218</td><td class="n">0,207</td><td class="n no">−22,3%</td></tr>
+<tr><td>WACC</td><td class="n">−0,658</td><td class="n">−0,660</td><td class="n">−0,621</td><td class="n">−0,550</td><td class="n si">−16,4%</td></tr>
+</table>
+<p>Entre un sexto y un tercio del efecto bruto del gobierno era, en realidad, tamaño. La mayor
+parte de la caída ocurre en el paso (1)→(2), al añadir el control de tamaño. <strong>El WACC es el
+más robusto</strong> (pierde solo 16%) y el ROE el más frágil (pierde un tercio). Que el
+coeficiente siga moviéndose al añadir el tercer y cuarto control es señal de que probablemente
+quedan variables omitidas fuera del modelo.</p>
+
+<h3>4.2 Causalidad inversa</h3>
+<p>Se estima la regresión en sentido contrario, con el puntaje de gobierno como variable
+dependiente, y se estandarizan ambas variables para poder comparar las dos direcciones en la misma
+escala:</p>
+<table>
+<tr><th>Dirección estimada</th><th class="n">Coeficiente estandarizado</th></tr>
+<tr><td>Gobierno → ROA</td><td class="n">+0,096</td></tr>
+<tr><td>ROA → Gobierno</td><td class="n">+0,095</td></tr>
+</table>
+<p><strong>Las dos direcciones son indistinguibles.</strong> Los datos son igual de compatibles con
+"el buen gobierno produce rentabilidad" que con "las empresas rentables pueden costear buen
+gobierno". Un corte transversal de un solo año no puede desempatar; haría falta un panel con
+rezagos o un cambio regulatorio exógeno que mueva el gobierno sin pasar por la rentabilidad.</p>
+
+<h3>4.3 Error de medida: el puntaje premia divulgar</h3>
+<p>El pilar de gobierno correlaciona <strong>0,77</strong> con el puntaje de divulgación de
+gobierno: dos tercios de su varianza son capacidad de reporte, no calidad de gobierno. Conviene
+notar que, en las 158 empresas con este dato, la divulgación <em>no</em> se asocia al tamaño
+(correlación −0,02), de modo que el sesgo de reporte no se reduce a un efecto de empresas grandes.
+La submuestra es el 8% del total, así que este diagnóstico es indicativo.</p>
+
+<h3>4.4 Simultaneidad y por qué no hay variable instrumental</h3>
+<table>
+<tr><th>Característica de junta</th><th class="n">Correlación con el tamaño de la firma</th></tr>
+<tr><td>Tamaño de la junta</td><td class="n no">+0,26</td></tr>
+<tr><td>% mujeres en la junta</td><td class="n">+0,22</td></tr>
+<tr><td>% independientes</td><td class="n">+0,15</td></tr>
+<tr><td>Edad media de la junta</td><td class="n gris">+0,07</td></tr>
+</table>
+<p>El tamaño de la junta es la característica más endógena: las empresas grandes tienen juntas
+grandes por razones operativas, no de gobierno, de modo que su efecto crudo sobre el desempeño está
+confundido de origen. Se exploró el promedio sectorial del puntaje de gobierno como instrumento: es
+fuerte en la primera etapa (coeficiente 1,05, F parcial de 90,9), pero <strong>no cumple la
+restricción de exclusión</strong>, porque el sector afecta la rentabilidad por muchas vías que nada
+tienen que ver con el gobierno. Sin un instrumento válido, el ejercicio se queda, correctamente, en
+asociación con controles.</p>
+
+<div class="lim"><strong>Alcance de las conclusiones.</strong> Corte transversal de un solo año, de
+modo que todo lo anterior mide asociación y no causalidad. La estructura de junta existe para 437
+de 1.878 empresas y está sesgada a gran capitalización. El WACC, que es la relación más fuerte del
+ejercicio, es también la más expuesta a crítica: Bloomberg lo deriva del beta y del spread de
+crédito, y las empresas grandes y estables tienen beta bajo por construcción, de modo que parte de
+la relación gobierno-WACC podría ser tamaño mal medido.</div>
+
+<div class="foot">Soporte de cálculo: <code>taller1_rubrica.ipynb</code> (los tres puntos del
+enunciado), <code>analisis_esg.ipynb</code>, <code>gobierno_vs_desempeno.ipynb</code> y
+<code>compensacion_sectores.ipynb</code>. Tablas exportadas en <code>resultados_taller1.xlsx</code>.
+Variables de desempeño winsorizadas al 1%-99%; errores estándar robustos (HC1); efectos fijos de
+sector en toda especificación con controles.</div>
+
+</body></html>
