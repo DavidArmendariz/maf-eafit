@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<title>Informe FinSimCo Equipo 3</title>
+<style>
+  @page { size: A4; margin: 14mm 15mm; }
+  :root { --ink:#1b1f24; --muted:#5b6470; --line:#d9dde3; --accent:#c4561d; --soft:#f6f2ee; --pos:#1f7a3f; --neg:#b3261e; }
+  * { box-sizing: border-box; }
+  body { font-family: "Helvetica Neue", Arial, sans-serif; color: var(--ink); background:#fff; font-size: 9.6pt; line-height: 1.42; margin: 0; }
+  h1 { font-size: 17pt; margin: 0 0 2px; }
+  .sub { color: var(--muted); margin: 0 0 10px; }
+  h2 { font-size: 11.5pt; margin: 14px 0 4px; padding-bottom: 2px; border-bottom: 2px solid var(--accent); }
+  p { margin: 4px 0; }
+  ul { margin: 4px 0; padding-left: 16px; }
+  li { margin: 2px 0; }
+  table { width: 100%; border-collapse: collapse; margin: 6px 0; font-size: 8.8pt; }
+  th, td { padding: 3px 6px; border-bottom: 1px solid var(--line); text-align: left; vertical-align: top; }
+  th { background: var(--soft); font-weight: 600; }
+  td.n, th.n { text-align: right; white-space: nowrap; }
+  .kpis { display: flex; gap: 8px; margin: 8px 0 4px; }
+  .kpi { flex: 1; background: var(--soft); border-radius: 6px; padding: 6px 8px; }
+  .kpi b { display: block; font-size: 14pt; color: var(--accent); }
+  .kpi span { color: var(--muted); font-size: 8.4pt; }
+  .tag { display: inline-block; font-size: 7.8pt; font-weight: 600; padding: 0 5px; border-radius: 3px; margin-right: 4px; }
+  .m { background: #e3ecf7; color: #1d4f8c; }
+  .j { background: #fbe6d9; color: #9a3f10; }
+  .pos { color: var(--pos); } .neg { color: var(--neg); }
+  .brk { break-before: page; }
+  .note { color: var(--muted); font-size: 8.4pt; }
+</style>
+</head>
+<body>
+
+<h1>FinSimCo: decisiones por trimestre</h1>
+<p class="sub">Equipo 3, hedge fund · Gestión avanzada de portafolios, EAFIT · capital inicial $100M</p>
+
+<div class="kpis">
+  <div class="kpi"><b>1.º</b><span>Hedge funds</span></div>
+  <div class="kpi"><b>47.75%</b><span>Retorno</span></div>
+  <div class="kpi"><b>4.73%</b><span>Alfa</span></div>
+  <div class="kpi"><b>16.91%</b><span>Volatilidad</span></div>
+  <div class="kpi"><b>2.58</b><span>Sharpe</span></div>
+</div>
+
+<p><b>Resumen.</b> Ganamos con el mayor retorno y el único alfa positivo entre los hedge funds. El Equipo 1 terminó con mejor Sharpe (3.36) y menor volatilidad (11.15%), pero con 41.62% de retorno y alfa de −1.40%. El punto de partida fue una optimización de máximo Sharpe, pero en Q1 perdió plata. A partir de Q2 el resultado salió de combinar el modelo con cuatro criterios propios: partir de lo que ya teníamos, no vender en pérdida y tomar utilidades, leer las noticias del simulador y bajar el apalancamiento hasta pagar el préstamo.</p>
+<p><span class="tag m">Modelo</span> decisión que salió de la optimización. <span class="tag j">Criterio</span> decisión del equipo que ajustó o reemplazó al modelo.</p>
+
+<h2>El modelo</h2>
+<p>Con los precios diarios del último año de las 25 acciones, el modelo calcula retornos anualizados y la matriz de covarianzas, y busca la combinación de máximo Sharpe con tasa libre de riesgo de 4%. Los precios faltantes se llenan con el dato del día anterior. Se corre igual cada trimestre con el archivo nuevo de datos (<code>run_quarter.sh</code>), y cada corrida queda guardada en <code>outputs/simulaciones_finsimco.xlsx</code>.</p>
+
+<h2>Q1: apalancamiento al máximo Sharpe</h2>
+<ul>
+  <li><span class="tag m">Modelo</span> La cartera long-only de máximo Sharpe dio un Sharpe esperado de 4.28. Con posiciones cortas (150% largo, 50% corto) subía a 5.06, pero FinSimCo no permitía cortos.</li>
+  <li><span class="tag j">Criterio</span> Como somos hedge fund, apalancamos 2x: pedimos $100M prestados e invertimos $200M en las mismas proporciones. Sabíamos que endeudarse no mejora el Sharpe, solo escala el retorno y el riesgo.</li>
+</ul>
+<table>
+  <tr><th>Acción</th><th class="n">% cartera</th><th>Acción</th><th class="n">% cartera</th></tr>
+  <tr><td>JNJ</td><td class="n">24.55%</td><td>TSM</td><td class="n">6.55%</td></tr>
+  <tr><td>XOM</td><td class="n">18.86%</td><td>GOOG</td><td class="n">4.36%</td></tr>
+  <tr><td>AAPL</td><td class="n">13.39%</td><td>UNH, MSFT, V, LLY</td><td class="n">2.8 a 3.2% c/u</td></tr>
+  <tr><td>Saudi Aramco</td><td class="n">11.35%</td><td>JPM</td><td class="n">0.25%</td></tr>
+  <tr><td>Samsung</td><td class="n">8.91%</td><td></td><td></td></tr>
+</table>
+<p><b>Resultado:</b> <span class="neg">−2.59%</span>, volatilidad 10.53%, Sharpe −0.35, último lugar. El modelo esperaba 84% anual. Las mayores pérdidas vinieron de TSM (−16.6%), Samsung (−10.9%) y MSFT (−12.9%). <b>Lección:</b> los retornos estimados con un solo año de historia no se repiten, y el apalancamiento duplicó la caída.</p>
+
+<h2>Q2: optimizar desde lo que ya teníamos</h2>
+<p>Noticias: se flexibiliza la regulación farmacéutica y la OPEP recorta 3% la producción (crudo +5%).</p>
+<ul>
+  <li><span class="tag m">Modelo</span> Optimizando desde cero, el modelo pedía vender todo Aramco, LLY y MSFT, y rotar cerca del 72% del patrimonio.</li>
+  <li><span class="tag j">Criterio</span> Cambiamos el modelo para que partiera de la cartera actual y cobrara 0.5% por cada dólar operado. Solo mueve una posición si la mejora en Sharpe paga el costo, y con eso la rotación bajó a 49%.</li>
+  <li><span class="tag j">Criterio</span> Regla del equipo: <b>no liquidar posiciones en pérdida y tomar utilidades en las ganadoras</b>. Se mantuvieron TSM, Samsung, Aramco, MSFT, XOM, LLY y V. Mantener Aramco, XOM y LLY además coincidía con las noticias.</li>
+  <li><span class="tag j">Criterio</span> Usamos el patrimonio real de FinSimCo ($86.35M, no los $97M que habíamos estimado) y la tasa real de 4.30%. Con eso, el apalancamiento estaba en 2.18x y lo bajamos a 2x vendiendo ganadoras: JNJ bajó a 157,432 acciones y AAPL a 73,555.</li>
+</ul>
+<p><b>Resultado:</b> retorno acumulado <span class="pos">+24.93%</span>, Sharpe 1.66, <b>primer lugar</b>. Casi todas las posiciones que no vendimos en pérdida se recuperaron. Samsung pasó de −10.9% a +16.8% sobre su costo.</p>
+
+<h2 class="brk">Q3: noticias por encima del modelo y desapalancar</h2>
+<p>Noticias: subsidios en EE.UU. a la producción de baterías (positivo para vehículos eléctricos, negativo para la demanda de petróleo) y recorte de 0.5% en la tasa de la Fed.</p>
+<ul>
+  <li><span class="tag j">Criterio</span> Bajamos el apalancamiento de 2x a 1.4x para proteger el primer lugar y empezar a pagar el préstamo.</li>
+  <li><span class="tag m">Modelo</span> Con los datos de Q3, el modelo compraba UNH (Sharpe histórico 2.30), Mastercard y TSLA, y recortaba Samsung y TSM.</li>
+  <li><span class="tag j">Criterio</span> Por la noticia de baterías, <b>vendimos todo XOM y todo Aramco</b>. El modelo solo recortaba XOM, pero el riesgo para la demanda de petróleo pesó más. Las dos posiciones salieron con utilidad.</li>
+  <li><span class="tag j">Criterio</span> Tomamos utilidades en JNJ: vendimos 43,923 acciones y realizamos +$2.3M.</li>
+</ul>
+<table>
+  <tr><th>Vendimos</th><th class="n">Acciones</th><th class="n">Aprox.</th><th>Compramos</th><th class="n">Acciones</th><th class="n">Aprox.</th></tr>
+  <tr><td>XOM (todo)</td><td class="n">228,337</td><td class="n">$41.7M</td><td>UNH</td><td class="n">30,346</td><td class="n">$17.1M</td></tr>
+  <tr><td>Aramco (todo)</td><td class="n">3,228,418</td><td class="n">$22.9M</td><td>Mastercard</td><td class="n">21,539</td><td class="n">$13.8M</td></tr>
+  <tr><td>JNJ</td><td class="n">43,923</td><td class="n">$15.6M</td><td>TSLA</td><td class="n">11,124</td><td class="n">$5.0M</td></tr>
+  <tr><td>Samsung</td><td class="n">39,910</td><td class="n">$10.4M</td><td>GOOG, LLY, V</td><td class="n"></td><td class="n">$2.8M</td></tr>
+  <tr><td>TSM</td><td class="n">22,911</td><td class="n">$9.1M</td><td></td><td></td><td></td></tr>
+</table>
+<p><b>Resultado:</b> retorno acumulado <span class="pos">+37.70%</span>, Sharpe 2.20, primer lugar. Al cierre de Q3 el préstamo quedó en $38M.</p>
+
+<h2>Q4: pagar todo el préstamo y defender</h2>
+<ul>
+  <li><span class="tag m">Modelo</span> Sin apalancamiento, el modelo proponía rotar $86M.</li>
+  <li><span class="tag j">Criterio</span> Siendo el último trimestre y yendo primeros, operamos lo mínimo para pagar el préstamo: vendimos 56,769 AAPL y todo Visa (16,609), que eran las dos ventas más grandes del modelo, y <b>pagamos los $38M. Préstamo en $0</b>.</li>
+  <li><span class="tag j">Criterio</span> Para bajar la concentración en salud y asegurar utilidades, vendimos 80,000 JNJ y 20,000 UNH. Con eso compramos 150,000 Amazon y 27,000 Berkshire Hathaway, una posición defensiva para el cierre.</li>
+</ul>
+
+<h2>Cierre</h2>
+<table>
+  <tr><th>Trimestre</th><th class="n">Retorno acumulado</th><th class="n">Sharpe</th><th class="n">Préstamo</th><th>Lugar</th></tr>
+  <tr><td>Q1</td><td class="n neg">−2.59%</td><td class="n">−0.35</td><td class="n">$100M</td><td>Último</td></tr>
+  <tr><td>Q2</td><td class="n pos">+24.93%</td><td class="n">1.66</td><td class="n">n.d.</td><td>1.º</td></tr>
+  <tr><td>Q3</td><td class="n pos">+37.70%</td><td class="n">2.20</td><td class="n">$38M</td><td>1.º</td></tr>
+  <tr><td>Q4 (final)</td><td class="n pos">+47.75%</td><td class="n">2.58</td><td class="n">$0</td><td>1.º hedge funds</td></tr>
+</table>
+<p>Las mayores ganancias de la cartera final fueron Samsung (+$6.1M) y UNH (+$5.3M). Las dos eran posiciones que el modelo quería reducir y que mantuvimos al menos en parte.</p>
+
+<h2>Qué aprendimos</h2>
+<ul>
+  <li><b>El modelo sirve como punto de partida, no como decisión final.</b> El máximo Sharpe con un año de historia sobreestimó el retorno en Q1. Cambia mucho de un trimestre a otro y no ve las noticias.</li>
+  <li><b>Optimizar desde la cartera actual y con costos de operación</b> evitó rotar todo cada trimestre sin una mejora real en el Sharpe.</li>
+  <li><b>No vender en pérdida nos funcionó, pero es un sesgo conocido.</b> Acertamos porque los precios rebotaron, no porque la regla sea buena en sí.</li>
+  <li><b>El apalancamiento se maneja según la posición en la tabla.</b> Lo usamos para crecer y lo bajamos (2x, 1.4x, 0x) cuando ya íbamos primeros, para proteger el resultado.</li>
+</ul>
+
+</body>
+</html>

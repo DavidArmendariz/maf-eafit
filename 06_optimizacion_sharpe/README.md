@@ -30,3 +30,22 @@ Set at the top of `optimizacion_sharpe.ipynb` (parameters cell):
 | `MAX_MISSING` | 30% | Tickers with more missing prices than this are dropped |
 
 Missing prices are filled with the previous row's value.
+
+## Running with the actual FinSimCo portfolio
+
+Set these as environment variables when running `./run_quarter.sh`:
+
+| Variable | Meaning |
+|---|---|
+| `NAV` | Actual equity from FinSimCo (stocks + cash − loan). Without it, equity is estimated |
+| `LEVERAGE` | Gross exposure / equity (2.0 default, 1.0 = no loan) |
+| `MARGIN_RATE` | Loan interest rate shown in FinSimCo |
+| `TRADING_COST` | Cost per $ traded; the optimizer starts from current holdings and only trades when it pays (0.5% default) |
+| `HOLD_LOSERS` | `1` (default) never sells a position below its cost basis |
+| `STRATEGY` | `A` long-only levered (default), `B` long/short |
+
+Current holdings go in `data/holdings_<Q>.csv` (Ticker, Shares, Cost basis), copied from the Portfolio tab.
+News for each quarter goes in `data/news.csv`.
+Example: `NAV=147170000 LEVERAGE=1.0 MARGIN_RATE=0.0456 ./run_quarter.sh Q4`
+
+Final report of the game (Spanish): `informe_finsimco.pdf`.
